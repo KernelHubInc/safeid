@@ -1,4 +1,4 @@
-<x-card class="flex flex-col w-full max-w-4xl mx-auto lg:my-10">
+<x-card class="flex flex-col w-full max-w-7xl mx-auto lg:my-10">
     <div class="flex flex-wrap items-center justify-between pb-3 mt-5 border-b lg:mt-0 sm:mt-8 border-zinc-200 dark:border-zinc-800 sm:flex-no-wrap">
         <div class="relative p-2">
             <div class="space-y-0.5">
@@ -18,6 +18,7 @@
                     <x-settings-sidebar-link :href="route('settings.social')" icon="phosphor-share-network-duotone">Social Media</x-settings-sidebar-link>
                     <x-settings-sidebar-link :href="route('settings.api')" icon="phosphor-code-duotone">API Keys</x-settings-sidebar-link>
                     <x-settings-sidebar-link :href="route('settings.activity')" icon="phosphor-clock-counter-clockwise-duotone">Activity Log</x-settings-sidebar-link>
+                    <x-settings-sidebar-link :href="route('user.two-factor-authentication')" icon="phosphor-clock-counter-clockwise-duotone">Two-Factor Authentication</x-settings-sidebar-link>
                 </div>
                 <div class="px-2.5 pt-3.5 pb-1.5 text-xs lg:block hidden font-semibold leading-6 text-zinc-500">Billing</div>
                 <div class="flex items-center w-full ml-2 space-x-2 lg:items-stretch lg:flex-col lg:ml-0 lg:space-y-1 lg:space-x-0">

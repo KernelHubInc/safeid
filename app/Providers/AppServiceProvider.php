@@ -15,6 +15,11 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Auth\Events\Registered;
+use App\Listeners\ProvisionEmerionOnRegister;
+use Wave\Subscription;
+use App\Observers\WaveSubscriptionObserver;
+use App\Listeners\SetTrialOnRegistered;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -49,6 +54,13 @@ class AppServiceProvider extends ServiceProvider
         // Register activity log event listeners
         Event::listen(Login::class, LogSuccessfulLogin::class);
         Event::listen(Logout::class, LogSuccessfulLogout::class);
+
+        Event::listen(
+            Registered::class,
+            ProvisionEmerionOnRegister::class
+        );
+        Event::listen(Registered::class, SetTrialOnRegistered::class);
+        // Subscription::observe(WaveSubscriptionObserver::class);
 
         Validator::extend('base64image', function ($attribute, $value, $parameters, $validator) {
             $explode = explode(',', $value);

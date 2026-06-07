@@ -82,7 +82,8 @@ class Update extends Component
             $this->cancellation_scheduled = true;
 
             $responseObject = json_decode($response->body());
-            $subscription->ends_at = $responseObject->data->current_billing_period->ends_at;
+            $endsAt = \Carbon\Carbon::parse($responseObject->data->current_billing_period->ends_at)->format('Y-m-d H:i:s');
+            $subscription->ends_at = $endsAt;
             $subscription->save();
 
             $this->js("window.dispatchEvent(new CustomEvent('close-modal', { detail: { id: 'cancel-modal' }}));");

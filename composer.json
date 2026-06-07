@@ -13,6 +13,8 @@
         "php": "^8.2",
         "ext-exif": "*",
         "ext-gd": "*",
+        "bacon/bacon-qr-code": "^3.0",
+        "barryvdh/laravel-dompdf": "^3.1",
         "codeat3/blade-phosphor-icons": "^2.0",
         "devdojo/app": "0.11.0",
         "devdojo/auth": "^1.0",

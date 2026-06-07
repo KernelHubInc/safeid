@@ -13,9 +13,12 @@
 
 	new class extends Component
 	{
+        public $owner = null;
+        public $members = null;
         public function mount(): void
         {
-            
+            $this->owner = auth()->user()->getSubscriptionOwner() ?? null;
+            $this->members = $this->owner->members;
         }
     }
 
@@ -42,7 +45,18 @@
                                     <span>You are currently subscribed to the {{ auth()->user()->plan()->name }} {{ auth()->user()->planInterval() }} Plan.</span>
                                 </div>
                             </x-app.alert>
-                            <p class="my-4">Manage your subscription by clicking below. Edit this page from the following file:  <x-code-inline>resources/views/{{ $theme->folder }}/pages/settings/subscription.blade.php</x-code-inline></p>
+                            <div class="py-4">
+                                <h2>Subscription</h2>
+
+                                <p>Plan: {{ auth()->user()->plan()->name }} </p>
+                                <p>Expires: {{ $owner->subscription_expires_at ?? auth()->user()->trial_ends_at }}</p>
+
+                                @if (auth()->user()->hasRole('premium'))
+
+                                <p>Protected Users: {{ $members->count() }} / 2</p>
+                                <livewire:subscription.manage-members />
+                                @endif
+                            </div>
                             @if (session('update'))
                                 <div class="my-4 text-sm text-green-600">Successfully updated your subscription</div>
                             @endif

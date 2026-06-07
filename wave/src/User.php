@@ -127,7 +127,7 @@ class User extends AuthUser implements FilamentUser, HasAvatar, JWTSubject
     {
         $latest_subscription = $this->latestSubscription();
 
-        return Plan::find($latest_subscription->plan_id);
+        return Plan::find($latest_subscription?->plan_id);
     }
 
     public function planInterval()
@@ -179,7 +179,7 @@ class User extends AuthUser implements FilamentUser, HasAvatar, JWTSubject
         } else {
             $paddle_url = (config('wave.paddle.env') == 'sandbox') ? 'https://sandbox-api.paddle.com' : 'https://api.paddle.com';
             $response = Http::withToken(config('wave.paddle.api_key'))->get($paddle_url.'/transactions', [
-                'subscription_id' => $this->subscription->vendor_subscription_id,
+                'customer_id' => $this->subscriptions->first()->vendor_customers_id,
             ]);
             $responseJson = json_decode($response->body());
             foreach ($responseJson->data as $invoice) {

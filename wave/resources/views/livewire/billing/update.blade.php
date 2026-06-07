@@ -1,4 +1,12 @@
 <div class="relative w-full h-auto">
+    <div>
+        <input type="email" wire:model="email" placeholder="Enter email">
+
+        <button wire:click="addMember">
+            Add
+        </button>
+    </div>
+
     @if(config('wave.billing_provider') == 'paddle')
         <script src="https://cdn.paddle.com/paddle/v2/paddle.js"></script>
         <script>

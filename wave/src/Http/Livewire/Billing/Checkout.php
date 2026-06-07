@@ -155,6 +155,9 @@ class Checkout extends Component
                 'seats' => 1,
             ]);
 
+            $user->trial_ends_at = date('Y-m-d', strtotime('+1 year'));
+            $user->save();
+
             $this->js('savePaddleSubscription("'.$transactionId.'")');
 
         } else {

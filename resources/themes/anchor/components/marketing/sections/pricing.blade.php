@@ -1,8 +1,8 @@
 <section>
     <x-marketing.elements.heading
         level="h2"
-        title="Chart Your Course"
-        description="Set sail and discover the riches of our value-packed plans, meticulously designed to offer you the very best features for less on your SaaS expedition. " 
+        title="Choose Your Plan"
+        description="Select the perfect plan for your emergency preparedness needs" 
     />
 
     <div x-data="{ on: false, billing: '{{ get_default_billing_cycle() }}',
@@ -58,10 +58,16 @@
                             </span>
                         </div>
 
+                        @if ($plan->name != "Enterprise")
                         <div class="px-8 mt-5">
-                            <span class="text-5xl font-bold">$<span x-text="billing == 'Monthly' ? '{{ $plan->monthly_price }}' : '{{ $plan->yearly_price }}'"></span></span>
+                            <span class="text-5xl font-bold">₱ <span x-text="billing == 'Monthly' ? '{{ $plan->monthly_price }}' : '{{ $plan->yearly_price }}'"></span></span>
                             <span class="text-xl font-bold text-zinc-500"><span x-text="billing == 'Monthly' ? '/mo' : '/yr'"></span></span>
                         </div>
+                        @else
+                        <div class="px-8 mt-5">
+                            <span class="text-5xl font-bold">Contact Us</span>
+                        </div>
+                        @endif
 
                         <div class="px-8 pb-10 mt-3">
                             <p class="text-base leading-7 text-zinc-500">{{ $plan->description }}</p>
@@ -82,7 +88,7 @@
                             </ul>
 
                             <div class="mt-8">
-                                <x-button class="w-full" tag="a" href="/settings/subscription">
+                                <x-button class="w-full" tag="a" href="/register">
                                     Get Started
                                 </x-button>
                             </div>
@@ -93,5 +99,4 @@
         </div>
     </div>
 
-    <p class="mt-0 mb-8 w-full text-center text-zinc-500 sm:my-10">All plans are fully configurable in the Admin Area.</p>
 </section>

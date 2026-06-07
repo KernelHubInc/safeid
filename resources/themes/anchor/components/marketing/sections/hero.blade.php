@@ -1,42 +1,59 @@
-<section class="flex relative top-0 flex-col justify-center items-center -mt-24 w-full min-h-screen bg-white lg:min-h-screen">
-    <div class="flex flex-col flex-1 gap-6 justify-between items-center px-8 pt-32 mx-auto w-full max-w-2xl text-left md:px-12 xl:px-20 lg:pt-32 lg:pb-16 lg:max-w-7xl lg:flex-row">
-        <div class="w-full lg:w-1/2">
-            <h1 class="text-6xl font-bold tracking-tighter text-left sm:text-7xl md:text-[84px] sm:text-center lg:text-left text-zinc-900 text-balance">
-                <span class="block origin-left lg:scale-90 text-nowrap">Ship in Days</span> <span class="pr-4 text-transparent bg-clip-text bg-gradient-to-b text-neutral-600 from-neutral-900 to-neutral-500">Not Weeks</span>
-            </h1>
-            <p class="mx-auto mt-5 text-lg font-normal text-left md:text-xl sm:max-w-md lg:ml-0 lg:max-w-sm sm:text-center lg:text-left text-zinc-500">
-                Customize this to highlight your product’s unique selling points<span class="hidden sm:inline"> and features</span>.
-            </p>
-            <div class="flex flex-col gap-3 justify-center items-center mx-auto mt-8 md:gap-2 lg:justify-start md:ml-0 md:flex-row">
-                <x-button size="lg" class="w-full lg:w-auto">Primary Button</x-button>
-                <x-button size="lg" color="secondary" class="w-full lg:w-auto">Secondary Button</x-button>
+<!-- <section class="relative bg-gradient-to-b from-red-50 to-white py-20 sm:py-32">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center max-w-4xl mx-auto">
+            <div class="flex justify-center mb-8">
+                <img src="/storage/emerion-logo.png" alt="Emerion Logo" class="h-24 w-24 sm:h-32 sm:w-32">
             </div>
-        </div>
-        <div class="flex justify-center items-center mt-12 w-full lg:w-1/2 lg:mt-0">
-            <img alt="Wave Character" class="relative w-full lg:scale-125 xl:translate-x-6" src="/wave/img/character.png" style="max-width:450px;">
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
+                Your Emergency Profile,
+                <span class="text-red-600"> Always With You</span>
+            </h1>
+            <p class="text-lg sm:text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
+                Emerion provides instant access to critical emergency information through QR codes and NFC cards. 
+                Stay protected with GPS tracking and crash detection technology.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="{{ route('register') }}">
+                    <button class="px-8 py-3 text-lg font-medium text-white bg-red-600 hover:bg-red-700 rounded-md">
+                        Get Started Free
+                    </button>
+                </a>
+                <a href="{{ route('login') }}">
+                    <button class="px-8 py-3 text-lg font-medium text-gray-700 border border-gray-300 hover:bg-gray-50 rounded-md">
+                        Sign In
+                    </button>
+                </a>
+            </div>
         </div>
     </div>
-    <div class="flex-shrink-0 lg:h-[150px] flex border-t border-zinc-200 items-center w-full bg-white">
-        <div class="grid grid-cols-1 px-8 py-10 mx-auto space-y-5 max-w-7xl h-auto divide-y lg:space-y-0 lg:divide-y-0 divide-zinc-200 lg:py-0 lg:divide-x md:px-12 lg:px-20 lg:divide-zinc-200 lg:grid-cols-3">
-            <div class="">
-                <h3 class="flex items-center font-medium text-zinc-900">
-                    Key Feature
-                </h3>
-                <p class="mt-2 text-sm font-medium text-zinc-500">
-                    Why might users be interested in using your product. <span class="hidden lg:inline">Tell them more here.</span>
-                </p>
+</section> -->
+<section class="max-w-7xl mx-auto px-8 mb-32 pt-32">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+        <div class="lg:col-span-7">
+            <h1 class="font-headline text-5xl md:text-7xl font-extrabold text-on-surface leading-[1.1] tracking-tight mb-8">
+                                    Your Emergency Profile, <span class="text-primary">Always With You</span>
+            </h1>
+            <p class="text-secondary text-lg md:text-xl max-w-xl mb-10 leading-relaxed">
+                Emerion provides instant access to critical emergency information through QR codes and NFC cards. 
+                Stay protected with GPS tracking and crash detection technology.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4">
+                <a href="/register">
+                    <button class="bg-surface-tint from-primary to-primary-container text-on-primary font-headline font-bold text-lg px-10 py-5 rounded-xl hover:shadow-lg transition-all active:scale-95">
+                        Get Started Free
+                    </button>
+                </a>
+                <a href="/how-it-works">
+                <button class="bg-surface-container-high text-on-surface font-headline font-semibold text-lg px-10 py-5 rounded-xl hover:bg-surface-container-highest transition-all active:scale-95">
+                    How it Works
+                </button>
+                </a>
             </div>
-            <div class="pt-5 lg:pt-0 lg:px-10">
-                <h3 class="font-medium text-zinc-900">Pain Points</h3>
-                <p class="mt-2 text-sm text-zinc-500">
-                    What are some pain points that your SaaS aims to solve? <span class="hidden lg:inline">Explain here.</span>
-                </p>
             </div>
-            <div class="pt-5 lg:pt-0 lg:px-10">
-                <h3 class="font-medium text-zinc-900">Unique Advantage</h3>
-                <p class="mt-2 text-sm text-zinc-500">
-                    Explain your unique advantage over others in the market.
-                </p>
+        <div class="lg:col-span-5 relative">
+            <div class="absolute -inset-4 bg-primary/5 rounded-[2.5rem] blur-3xl"></div>
+            <div class="relative bg-surface-container-lowest rounded-[2.5rem] p-4 shadow-[0_32px_64px_rgba(0,0,0,0.08)] rotate-[5deg]">
+                <img alt="" class="w-full h-auto rounded-[2rem]" data-alt="high-end smartphone mockup displaying a clean medical emergency profile with vital signs and QR code in a minimalist UI" src="/storage/scan1.jpg"/>
             </div>
         </div>
     </div>

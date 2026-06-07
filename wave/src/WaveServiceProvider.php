@@ -30,6 +30,7 @@ use Wave\Console\Commands\CreatePluginCommand;
 use Wave\Facades\Wave as WaveFacade;
 use Wave\Http\Livewire\Billing\Checkout;
 use Wave\Http\Livewire\Billing\Update;
+use Wave\Http\Livewire\Subscription\ManageMembers;
 use Wave\Http\Middleware\InstallMiddleware;
 use Wave\Http\Middleware\Subscribed;
 use Wave\Http\Middleware\ThemeDemoMiddleware;
@@ -244,6 +245,7 @@ class WaveServiceProvider extends ServiceProvider
     {
         Livewire::component('billing.checkout', Checkout::class);
         Livewire::component('billing.update', Update::class);
+        Livewire::component('subscription.manage-members', ManageMembers::class);
     }
 
     protected function setDefaultThemeColors()

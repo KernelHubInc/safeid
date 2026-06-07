@@ -23,6 +23,7 @@
 
             <div class="h-full space-y-5">
                 @foreach($plans as $plan)
+                    @if ($plan->name != "Enterprise")
                     @php $features = explode(',', $plan->features); @endphp
                     <div 
                         {{--  Say that you have a monthly plan that doesn't have a yearly plan, in that case we will hide the place that doesn't have a price_id --}}
@@ -39,7 +40,7 @@
 
                                 <div class="my-3 space-y-2 md:my-5">
                                     <div class="relative">
-                                        <span class="text-3xl font-bold lg:text-4xl dark:text-neutral-200">$<span x-text="billing_cycle_selected == 'month' ? '{{ $plan->monthly_price }}' : '{{ $plan->yearly_price }}'"></span></span>
+                                        <span class="text-3xl font-bold lg:text-4xl dark:text-neutral-200">₱<span x-text="billing_cycle_selected == 'month' ? '{{ $plan->monthly_price }}' : '{{ $plan->yearly_price }}'"></span></span>
                                         <span class="inline-block text-xl font-bold text-gray-500 dark:text-neutral-200 -translate-y-0.5 lg:text-2xl"><span x-text="billing_cycle_selected == 'month' ? '/mo' : '/yr'"></span></span>
                                     </div>
                                     <p class="text-sm leading-7 text-gray-500 dark:text-neutral-300 lg:text-base">{{ $plan->description }}</p>
@@ -65,7 +66,7 @@
                                             <x-billing.button wire:click="redirectToStripeCheckout('{{ $plan->id }}')" wire:target="redirectToPaymentProvider" rounded="md" color="{{ config('devdojo.billing.style.color') }}">
                                                 Subscribe to this Plan
                                             </x-billing.button>
-                                        @else
+                                        @elseif(config('wave.billing_provider') == 'paddle')
                                             @if($change)
 
                                                 <x-filament::modal width="lg" id="change-plan-modal">
@@ -116,12 +117,15 @@
                                                     Subscribe to this Plan
                                                 </x-billing.button>
                                             @endif
+                                        @else
+                                        
                                         @endif
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    @endif
                 @endforeach
             </div>
         </div>

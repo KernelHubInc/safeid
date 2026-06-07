@@ -29,6 +29,7 @@ class DatabaseSeeder extends Seeder
         $this->call(SettingsTableSeeder::class);
         $this->call(ProfileKeyValuesTableSeeder::class);
         $this->call(ThemesTableSeeder::class);
+        $this->call(\Database\Seeders\EmerionDemoSeeder::class);
         fixPostgresSequence();
     }
 }
